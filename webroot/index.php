@@ -20,8 +20,11 @@ use Cake\Http\Server;
 /**
  * Contenido estático
  */
-if (PHP_SAPI === 'cli-server' && is_file(__DIR__ . parse_url($_SERVER['REQUEST_URI'])['path'])) {
-    return false;
+if (PHP_SAPI === 'cli-server') {
+    $_SERVER['PHP_SELF'] = '/' . basename(__FILE__);
+    if (is_file(__DIR__ . parse_url($_SERVER['REQUEST_URI'])['path'])) {
+        return false;
+    }
 }
 
 /**
