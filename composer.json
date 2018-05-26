@@ -1,9 +1,20 @@
 {
-    "name": "cakephp/app",
-    "description": "CakePHP skeleton app",
-    "homepage": "https://cakephp.org",
+    "name": "jacricelli/cakephp-app",
+    "description": "Plantilla de aplicación para proyectos de CakePHP 3",
+    "homepage": "https://github.com/jacricelli/cakephp-app",
+    "keywords": [
+        "php",
+        "cakephp",
+        "cakephp-app",
+        "cakephp-template",
+        "cakephp-skeleton"
+    ],
     "type": "project",
     "license": "MIT",
+    "prefer-stable": true,
+    "config": {
+        "sort-packages": true
+    },
     "require": {
         "php": ">=5.6",
         "cakephp/cakephp": "3.6.*",
@@ -18,9 +29,5 @@
         "post-install-cmd": "App\\Console\\Installer::postInstall",
         "post-create-project-cmd": "App\\Console\\Installer::postInstall",
         "post-autoload-dump": "Cake\\Composer\\Installer\\PluginInstaller::postAutoloadDump"
-    },
-    "prefer-stable": true,
-    "config": {
-        "sort-packages": true
     }
 }
