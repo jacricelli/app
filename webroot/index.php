@@ -14,24 +14,31 @@
  * @since         0.2.9
  * @license       MIT License (https://opensource.org/licenses/mit-license.php)
  */
-
-// For built-in server
-if (php_sapi_name() === 'cli-server') {
-    $_SERVER['PHP_SELF'] = '/' . basename(__FILE__);
-
-    $url = parse_url(urldecode($_SERVER['REQUEST_URI']));
-    $file = __DIR__ . $url['path'];
-    if (strpos($url['path'], '..') === false && strpos($url['path'], '.') !== false && is_file($file)) {
-        return false;
-    }
-}
-require dirname(__DIR__) . '/vendor/autoload.php';
-
 use App\Application;
 use Cake\Http\Server;
 
-// Bind your application to the server.
-$server = new Server(new Application(dirname(__DIR__) . '/config'));
+/**
+ * Contenido estático
+ */
+if (PHP_SAPI === 'cli-server' && is_file(__DIR__ . parse_url($_SERVER['REQUEST_URI'])['path'])) {
+    return false;
+}
 
-// Run the request/response through the application and emit the response.
-$server->emit($server->run());
+/**
+ * Cargador de clases de Composer
+ */
+require __DIR__ . '/../vendor/autoload.php';
+
+/**
+ * Enlazar aplicación con el servidor
+ */
+$server = new Server(
+    new Application(__DIR__ . '/../config')
+);
+
+/**
+ * Ejecutar aplicación y emitir respuesta
+ */
+$server->emit(
+    $server->run()
+);
