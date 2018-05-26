@@ -158,20 +158,6 @@ Security::setSalt(Configure::consume('Security.salt'));
 //Security::engine(new \Cake\Utility\Crypto\Mcrypt());
 
 /*
- * Setup detectors for mobile and tablet.
- */
-ServerRequest::addDetector('mobile', function ($request) {
-    $detector = new \Detection\MobileDetect();
-
-    return $detector->isMobile();
-});
-ServerRequest::addDetector('tablet', function ($request) {
-    $detector = new \Detection\MobileDetect();
-
-    return $detector->isTablet();
-});
-
-/*
  * Enable immutable time objects in the ORM.
  *
  * You can enable default locale format parsing by adding calls
