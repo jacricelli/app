@@ -1,11 +1,23 @@
 #!/usr/bin/php -q
 <?php
-// Check platform requirements
-require dirname(__DIR__) . '/vendor/autoload.php';
-
 use App\Application;
 use Cake\Console\CommandRunner;
 
-// Build the runner with an application and root executable name.
-$runner = new CommandRunner(new Application(dirname(__DIR__) . '/config'), 'cake');
-exit($runner->run($argv));
+/**
+ * Requerir el cargador de clases de Composer
+ */
+require dirname(__DIR__) . '/vendor/autoload.php';
+
+/**
+ * Construir el corredor con una aplicación
+ */
+$runner = new CommandRunner(
+    new Application(dirname(__DIR__) . '/config')
+);
+
+/**
+ * Ejecutar comando
+ */
+exit(
+    $runner->run($argv)
+);
