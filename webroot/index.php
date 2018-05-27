@@ -18,7 +18,7 @@ use App\Application;
 use Cake\Http\Server;
 
 /**
- * Contenido estático
+ * Determinar si la solicitud corresponde a un archivo existente
  */
 if (PHP_SAPI === 'cli-server') {
     $_SERVER['PHP_SELF'] = '/' . basename(__FILE__);
@@ -28,19 +28,19 @@ if (PHP_SAPI === 'cli-server') {
 }
 
 /**
- * Cargador de clases de Composer
+ * Requerir el cargador de clases de Composer
  */
 require __DIR__ . '/../vendor/autoload.php';
 
 /**
- * Enlazar aplicación con el servidor
+ * Enlazar la aplicación con el servidor
  */
 $server = new Server(
     new Application(__DIR__ . '/../config')
 );
 
 /**
- * Ejecutar aplicación y emitir respuesta
+ * Ejecutar la aplicación y emitir respuesta
  */
 $server->emit(
     $server->run()

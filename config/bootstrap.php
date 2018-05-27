@@ -27,7 +27,7 @@ use Cake\Utility\Security;
 require __DIR__ . '/paths.php';
 
 /**
- * Ejecutar el arranque de CakePHP
+ * Requerir script de arranque de CakePHP
  */
 require CORE_PATH . 'config' . DS . 'bootstrap.php';
 
