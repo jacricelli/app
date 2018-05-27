@@ -28,7 +28,6 @@ use Exception;
  */
 class Installer
 {
-
     /**
      * An array of directories to be made writable
      */
@@ -55,8 +54,10 @@ class Installer
         $io = $event->getIO();
 
         $rootDir = dirname(dirname(__DIR__));
+        $appName = str_replace('-', '_', basename($rootDir));
 
         static::createAppConfig($rootDir, $io);
+        static::setAppNameInFile($rootDir, $io, $appName, 'app.php');
         static::createWritableDirectories($rootDir, $io);
 
         // ask if the permissions should be changed
