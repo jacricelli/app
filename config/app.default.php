@@ -15,7 +15,11 @@ return [
         'imageBaseUrl' => 'img/',
         'cssBaseUrl' => 'css/',
         'jsBaseUrl' => 'js/',
-        'paths' => [],
+        'paths' => [
+            'locales' => [APP . 'Locale' . DS],
+            'plugins' => [ROOT . DS . 'plugins' . DS],
+            'templates' => [APP . 'Template' . DS],
+        ],
     ],
     'Security' => [
         'salt' => env('SECURITY_SALT', '__SALT__'),
