@@ -99,15 +99,11 @@ Security::setSalt(Configure::consume('Security.salt'));
 /**
  * Habilitar objetos de tiempo inmutables en el ORM
  */
-/* @noinspection PhpUndefinedMethodInspection */
 Type::build('time')
     ->useImmutable();
-/* @noinspection PhpUndefinedMethodInspection */
 Type::build('date')
     ->useImmutable();
-/* @noinspection PhpUndefinedMethodInspection */
 Type::build('datetime')
     ->useImmutable();
-/* @noinspection PhpUndefinedMethodInspection */
 Type::build('timestamp')
     ->useImmutable();
