@@ -17,8 +17,8 @@ namespace App;
 use Cake\Error\Middleware\ErrorHandlerMiddleware;
 use Cake\Http\BaseApplication;
 use Cake\Routing\Middleware\RoutingMiddleware;
-use Cake\Routing\Route\DashedRoute;
 use Cake\Routing\Router;
+use Cake\Routing\Route\DashedRoute;
 
 /**
  * Aplicación
