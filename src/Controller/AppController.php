@@ -23,6 +23,8 @@ class AppController extends Controller
 {
     /**
      * Home
+     *
+     * @return void
      */
     public function home()
     {
