@@ -33,6 +33,10 @@
     "scripts": {
         "post-install-cmd": "App\\Console\\Installer::postInstall",
         "post-create-project-cmd": "App\\Console\\Installer::postInstall",
-        "post-autoload-dump": "Cake\\Composer\\Installer\\PluginInstaller::postAutoloadDump"
+        "post-autoload-dump": "Cake\\Composer\\Installer\\PluginInstaller::postAutoloadDump",
+        "check": [
+            "@cs-check"
+        ],
+        "cs-check": "phpcs -p --extensions=php --standard=./phpcs.xml.dist --ignore=*/vendor/* ."
     }
 }
