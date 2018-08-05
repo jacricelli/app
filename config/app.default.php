@@ -26,13 +26,13 @@ return [
     ],
     'Cache' => [
         'default' => [
-            'className' => 'File',
+            'className' => 'Cake\Cache\Engine\FileEngine',
             'prefix' => '__APP_NAME___default',
             'path' => CACHE,
             'url' => env('CACHE_DEFAULT_URL', null),
         ],
         '_cake_core_' => [
-            'className' => 'File',
+            'className' => 'Cake\Cache\Engine\FileEngine',
             'prefix' => '__APP_NAME___cake_core_',
             'path' => CACHE . 'persistent/',
             'serialize' => true,
@@ -40,7 +40,7 @@ return [
             'url' => env('CACHE_CAKECORE_URL', null),
         ],
         '_cake_model_' => [
-            'className' => 'File',
+            'className' => 'Cake\Cache\Engine\FileEngine',
             'prefix' => '__APP_NAME___cake_model_',
             'path' => CACHE . 'models/',
             'serialize' => true,
@@ -48,7 +48,7 @@ return [
             'url' => env('CACHE_CAKEMODEL_URL', null),
         ],
         '_cake_routes_' => [
-            'className' => 'File',
+            'className' => 'Cake\Cache\Engine\FileEngine',
             'prefix' => '__APP_NAME___cake_routes_',
             'path' => CACHE,
             'serialize' => true,
