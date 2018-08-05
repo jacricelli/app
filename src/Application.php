@@ -34,8 +34,10 @@ class Application extends BaseApplication
      */
     public function routes($routes)
     {
-        if (!Router::$initialized) {
-            Router::$initialized = true;
+        /** @noinspection PhpDeprecationInspection */
+        $initialized =& Router::$initialized;
+        if (!$initialized) {
+            $initialized = true;
 
             $routes->connect('/', 'App::home');
             $routes->fallbacks(DashedRoute::class);
