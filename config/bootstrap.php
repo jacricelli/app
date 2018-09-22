@@ -53,6 +53,22 @@ if (PHP_SAPI !== 'cli') {
 }
 
 /**
+ * Establecer la URL base
+ */
+if (!Configure::read('App.fullBaseUrl')) {
+    $s = null;
+    if (env('HTTPS')) {
+        $s = 's';
+    }
+
+    $httpHost = env('HTTP_HOST');
+    if (isset($httpHost)) {
+        Configure::write('App.fullBaseUrl', 'http' . $s . '://' . $httpHost);
+    }
+    unset($httpHost, $s);
+}
+
+/**
  * Establecer la duración de la caché de metadatos y rutas
  */
 if (Configure::read('debug')) {
